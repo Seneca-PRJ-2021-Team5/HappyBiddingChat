@@ -1,0 +1,25 @@
+{
+  "name": "happybiddingchat",
+  "version": "1.0.0",
+  "description": "applicatoin to deal with chat messaging",
+  "main": "chat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seneca-PRJ-2021-Team5/HappyBiddingChat.git"
+  },
+  "author": "team 12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seneca-PRJ-2021-Team5/HappyBiddingChat/issues"
+  },
+  "homepage": "https://github.com/Seneca-PRJ-2021-Team5/HappyBiddingChat#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  }
+}
