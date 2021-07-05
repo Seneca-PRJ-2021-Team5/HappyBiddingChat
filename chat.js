@@ -5,7 +5,11 @@ const cors = require("cors");
 //         origins:["http://localhost:5000"]
 //     }
 // }
-corsOptions = {}
+corsOptions = {
+    cors:{
+        origins:["https://happybiddingchat.herokuapp.com/"]
+    }
+}
 const chalk = require('chalk'); // to style console.log texts
 const bodyParser = require("body-parser");
 const app = express();
