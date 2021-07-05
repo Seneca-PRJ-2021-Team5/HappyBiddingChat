@@ -13,7 +13,7 @@ corsOptions = {
         credentials: true
     }
 }
-corsOptions = {}
+//corsOptions = {}
 const chalk = require('chalk'); // to style console.log texts
 const bodyParser = require("body-parser");
 const app = express();
