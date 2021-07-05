@@ -8,7 +8,9 @@ const cors = require("cors");
 corsOptions = {
     cors:{
         "origin": "*",
-        "methods": "GET,POST"
+        "methods": ["GET","POST"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
     }
 }
 const chalk = require('chalk'); // to style console.log texts
