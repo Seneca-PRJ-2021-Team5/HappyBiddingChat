@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'https://happybiddingchat.herokuapp.com/');
+    res.setHeader('Access-Control-Allow-Origin', 'http:localhost:8080/synchAuction');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
