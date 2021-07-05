@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-corsOptions={
-    cors:{
-        origins:["http://localhost:5000"]
-    }
-}
+// corsOptions={
+//     cors:{
+//         origins:["http://localhost:5000"]
+//     }
+// }
+corsOptions = {}
 const chalk = require('chalk'); // to style console.log texts
 const bodyParser = require("body-parser");
 const app = express();
