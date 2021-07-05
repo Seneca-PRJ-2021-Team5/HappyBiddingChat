@@ -6,16 +6,18 @@ corsOptions={
     }
 }
 const chalk = require('chalk'); // to style console.log texts
+const bodyParser = require("body-parser");
 const app = express();
 
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer, corsOptions);
 app.use(cors());
+app.use(bodyParser.json());
 
 io.on("connection", socket => { 
     console.log("new client connected!")
 
-    socket.on('sendMessage', (message, callback) => {
+    socket.on('sendMessage', (messageInfo, callback) => {
         //io.emit('message', { text: message });
 
         currentDate = new Date();
@@ -23,9 +25,9 @@ io.on("connection", socket => {
         io.emit('message', 
         {
             position: 'left', 
-            title: 'User', 
+            title: messageInfo.userName, 
             type: 'text', 
-            text: message, 
+            text: messageInfo.message, 
             date: currentDate
         });
         callback();
@@ -35,7 +37,7 @@ io.on("connection", socket => {
 
 
 const HTTP_PORT = process.env.PORT || 5000;
-app.listen(HTTP_PORT,()=>{
+httpServer.listen(HTTP_PORT,()=>{
     console.log(chalk.blue(`------------------------------------------------------------------------------------`));
     console.log(chalk.yellow(`WEB SERVER:`), chalk.green(` STARTED AT PORT ${HTTP_PORT}`));
 })
