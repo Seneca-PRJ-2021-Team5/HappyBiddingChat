@@ -7,7 +7,8 @@ const cors = require("cors");
 // }
 corsOptions = {
     cors:{
-        origins:["https://happybiddingchat.herokuapp.com/"]
+        "origin": "*",
+        "methods": "GET,POST"
     }
 }
 const chalk = require('chalk'); // to style console.log texts
