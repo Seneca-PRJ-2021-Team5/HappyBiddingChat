@@ -41,7 +41,7 @@ io.on("connection", socket => {
 });
 
 
-const HTTP_PORT = process.env.PORT || 5000;
+const HTTP_PORT = process.env.PORT || 8080;
 httpServer.listen(HTTP_PORT,()=>{
     console.log(chalk.blue(`------------------------------------------------------------------------------------`));
     console.log(chalk.yellow(`WEB SERVER:`), chalk.green(` STARTED AT PORT ${HTTP_PORT}`));
