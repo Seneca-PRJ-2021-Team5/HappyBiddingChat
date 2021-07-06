@@ -7,10 +7,7 @@ const cors = require("cors");
 // }
 corsOptions = {
     cors:{
-        "origin": "*",
-        "methods": ["GET","POST"],
-        allowedHeaders: ["my-custom-header"],
-        credentials: true
+        "origin": "*"
     }
 }
 //corsOptions = {}
@@ -20,7 +17,7 @@ const app = express();
 
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer, corsOptions);
-app.use(cors());
+//app.use(cors());
 app.use(bodyParser.json());
 
 // Add headers
