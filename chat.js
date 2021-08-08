@@ -17,6 +17,7 @@ const app = express();
 
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer, corsOptions);
+const utils = require('./utils/users')
 //app.use(cors());
 app.use(bodyParser.json());
 
@@ -43,12 +44,20 @@ app.use(bodyParser.json());
 io.on("connection", socket => { 
     console.log("new client connected!")
 
+    socket.on('joinAuctionChat', ({userName, auctionId}) => {
+        console.log(`Hello ${userName}, youre in ${auctionId}`)
+        const usr = utils.addUserToChat(socket.id, userName, auctionId)
+
+        socket.join(usr.roomId)
+    })
+
     socket.on('sendMessage', (messageInfo, callback) => {
         //io.emit('message', { text: message });
-
+        const usr = utils.getUserById(socket.id)
         currentDate = new Date();
         console.log(currentDate);
-        io.emit('message', 
+        io.to(usr.roomId)
+        .emit('message', 
         {
             position: 'left', 
             title: messageInfo.userName, 
@@ -58,6 +67,11 @@ io.on("connection", socket => {
         });
         callback();
     });
+
+    // socket.on('disconnect', () => {
+    //     const usr = utils.removeUserFromChat(socket.id)
+    //     console.log(`removed: ${usr.userName}`)
+    // })
 
 });
 
